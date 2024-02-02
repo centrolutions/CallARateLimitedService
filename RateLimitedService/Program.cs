@@ -11,7 +11,7 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddRateLimiter(_ => _.AddFixedWindowLimiter(policyName: "fixed", opt =>
 {
     opt.PermitLimit = 4;
-    opt.Window = TimeSpan.FromSeconds(10);
+    opt.Window = TimeSpan.FromSeconds(1);
     opt.QueueProcessingOrder = System.Threading.RateLimiting.QueueProcessingOrder.OldestFirst;
     opt.QueueLimit = 2;
 }));

@@ -7,9 +7,9 @@ int failures = 0;
 int successes = 0;
 
 var client = new WeatherClient();
+var throttler = new Throttler(4);
 
-var tasks = postalCodes.Select(GetWeather).ToArray();
-await Task.WhenAll(tasks);
+await throttler.Execute(postalCodes, GetWeather);
 
 Console.WriteLine($"Failures: {failures}, Successes: {successes} in {stopwatch.Elapsed}");
 
