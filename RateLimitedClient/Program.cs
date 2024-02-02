@@ -25,5 +25,6 @@ async Task GetWeather(string postalCode)
     {
         Console.WriteLine($"{postalCode}: {ex.Message}");
         Interlocked.Increment(ref failures);
+        throw;
     }
 }
