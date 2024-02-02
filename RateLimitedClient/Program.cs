@@ -11,7 +11,7 @@ var client = new WeatherClient();
 var tasks = postalCodes.Select(GetWeather).ToArray();
 await Task.WhenAll(tasks);
 
-Console.WriteLine($"Failures: {failures}, Successes: {successes}");
+Console.WriteLine($"Failures: {failures}, Successes: {successes} in {stopwatch.Elapsed}");
 
 async Task GetWeather(string postalCode)
 {
