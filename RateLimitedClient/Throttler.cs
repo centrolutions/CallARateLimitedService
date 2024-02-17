@@ -3,12 +3,12 @@ using System.Diagnostics;
 
 namespace RateLimitedClient;
 
-internal class Throttler
+class Throttler
 {
-    private readonly int _callsPerSecond;
-    private readonly Stopwatch _stopwatch;
-    private readonly ConcurrentQueue<TimeSpan> _callQueue;
-    private readonly SemaphoreSlim _semaphore;
+    readonly int _callsPerSecond;
+    readonly Stopwatch _stopwatch;
+    readonly ConcurrentQueue<TimeSpan> _callQueue;
+    readonly SemaphoreSlim _semaphore;
 
     int _itemsProcessed = 0;
 
