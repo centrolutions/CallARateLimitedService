@@ -1,21 +1,20 @@
-﻿using RateLimitedService;
-using System.Net.Http.Json;
+﻿using System.Net.Http.Json;
+using RateLimitedService;
 
-namespace RateLimitedClient
+namespace RateLimitedClient;
+
+internal class WeatherClient
 {
-    internal class WeatherClient
+    readonly HttpClient _http;
+
+    public WeatherClient()
     {
-        HttpClient _http;
+        _http = new HttpClient();
+    }
 
-        public WeatherClient()
-        {
-            _http = new HttpClient();
-        }
-
-        public Task<WeatherForecast?> GetWeatherForcast(string location)
-        {
-            var url = $"http://localhost:5273/WeatherForecast?location={location}";
-            return _http.GetFromJsonAsync<WeatherForecast>(url);
-        }
+    public Task<WeatherForecast?> GetWeatherForcast(string location)
+    {
+        var url = $"http://localhost:5273/WeatherForecast?location={location}";
+        return _http.GetFromJsonAsync<WeatherForecast>(url);
     }
 }

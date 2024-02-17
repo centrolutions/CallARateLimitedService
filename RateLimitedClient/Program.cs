@@ -1,5 +1,5 @@
-﻿using RateLimitedClient;
-using System.Diagnostics;
+﻿using System.Diagnostics;
+using RateLimitedClient;
 
 var stopwatch = Stopwatch.StartNew();
 var postalCodes = Enumerable.Range(75001, 1000).Select(x => x.ToString()).ToArray();
