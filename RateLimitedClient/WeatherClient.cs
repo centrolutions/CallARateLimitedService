@@ -3,7 +3,7 @@ using RateLimitedService;
 
 namespace RateLimitedClient;
 
-internal class WeatherClient
+class WeatherClient
 {
     readonly HttpClient _http;
 
